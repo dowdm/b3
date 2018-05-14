@@ -1,13 +1,7 @@
 
-<p (click)="triggerCryptoRequest('BTC', 'EUR', '500')">
-  crypto works!
-</p>
-<p>{{rate}}</p>
-
-<hr>
 <form class="crypto" action="index.html" method="post">
   <label for="">Crypto to convert from</label>
-  <select class="form-control" id="crypto" #source>
+  <select class="form-control" id="crypto" #symbol>
     <option value="BTC">Bitcoin</option>
     <option value="LTC">Litecoin</option>
     <option value="NMC">Namecoin</option>
@@ -46,12 +40,13 @@
     <option value="ADA">Cardano</option>
     <option value="BTCP">Bitcoin Private</option>
   </select>
-  <p>Exchange Rate: {{rate}}</p>
-  <p>{{result}}</p>
   <label for="">Crypto to convert to</label>
-  <select class="form-control" id="crypto" #destination>
+  <select class="form-control" id="crypto" #market>
     <option value="USD">US dollar</option>
     <option value="EUR">Euro</option>
   </select>
+  <button id="button" class="btn " type="submit" name="button" (click)="triggerCryptoRequest(symbol.value, market.value, '500')"> Submit </button>
 </form>
 
+
+<p>{{rate}}{{market.value}}</p>
