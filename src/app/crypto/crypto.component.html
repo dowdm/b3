@@ -1,3 +1,50 @@
-<p>
-  crypto works!
-</p>
+<hr>
+<form class="crypto" action="index.html" method="post">
+  <label for="">Crypto to convert from</label>
+  <select class="form-control" id="crypto" #source>
+    <option value="BTC">Bitcoin</option>
+    <option value="LTC">Litecoin</option>
+    <option value="NMC">Namecoin</option>
+    <option value="STC">SwiftCoin</option>
+    <option value="BCN">Bytecoin</option>
+    <option value="PPC">Peercoin</option>
+    <option value="DOGE">Dogecoin</option>
+    <option value="EMC">Eemrcoin</option>
+    <option value="FTC">Feathercoin</option>
+    <option value="GRC">Gridcoin</option>
+    <option value="XPM">Primecoin</option>
+    <option value="XRP">Ripple</option>
+    <option value="NXT">Nxt</option>
+    <option value="AUR">Auroracoin</option>
+    <option value="KOI">Coinye</option>
+    <option value="DASH">Dash</option>
+    <option value="NEO">NEO</option>
+    <option value="MZC">MazaCoin</option>
+    <option value="XMR">Monero</option>
+    <option value="XEM">NEM</option>
+    <option value="POT">PotCoin</option>
+    <option value="AMP">Synereo AMP</option>
+    <option value="TIT">Titcoin</option>
+    <option value="VTC">Verge</option>
+    <option value="XLM">Stellar</option>
+    <option value="VTC">Vertcoin</option>
+    <option value="ETH">Ethereum</option>
+    <option value="ETC">Ethereum Classic</option>
+    <option value="USDT">Tether</option>
+    <option value="DCR">Decred</option>
+    <option value="WAVES">Waves Platform</option>
+    <option value="ZEC">Zcash</option>
+    <option value="BCC">BitConnect</option>
+    <option value="BCH">Bitcoin Cash</option>
+    <option value="EOS">EOS.IO</option>
+    <option value="ADA">Cardano</option>
+    <option value="BTCP">Bitcoin Private</option>
+  </select>
+  <p>Exchange Rate: {{rate}}</p>
+  <p>{{result}}</p>
+  <label for="">Crypto to convert to</label>
+  <select class="form-control" id="crypto" #destination>
+    <option value="USD">US dollar</option>
+    <option value="EUR">Euro</option>
+  </select>
+</form>
