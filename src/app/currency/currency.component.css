@@ -12,3 +12,9 @@ i {
   float: right;
   width: 33.33%;
 }
+.container {
+  background-image: url("http://www.bejournal.it/wp-content/uploads/2017/05/milleponti-viaggi.jpg");
+  opacity: 0.5%;
+  background-size: cover;
+  background-position: center;
+}
