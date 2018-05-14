@@ -1,9 +1,9 @@
 
 <form id="currencies">
   <label for="">Enter an amount</label>
-  <input type="number" name="amount" value="">
+  <input type="number" name="amount" value="" #amount>
   <label for="">Currency to convert from</label>
-  <select class="form-control" id="currencies">
+  <select class="form-control" id="currencies" #source>
     <option value="XUA">ABD Unit of Account</option>
     <option value="AFN">Afghani</option>
     <option value="DZD">Algerian Dinar</option>
@@ -173,9 +173,10 @@
     <option value="ZWL">Zimbabwe Dollar</option>
     <option value="PLN">Zloty</option>
   </select>
-
+  <p>Exchange Rate: {{rate}}</p>
+<p>{{result}}</p>
   <label for="">Currency to convert to</label>
-  <select class="form-control" id="currencies">
+  <select class="form-control" id="currencies" #destination>
     <option value="XUA">ABD Unit of Account</option>
     <option value="AFN">Afghani</option>
     <option value="DZD">Algerian Dinar</option>
@@ -345,13 +346,10 @@
     <option value="ZWL">Zimbabwe Dollar</option>
     <option value="PLN">Zloty</option>
   </select>
-  <button id="button" type="click" name="button">Submit</button>
+  <button id="button" type="click" name="button" (click)="triggerExchangeRequest(source.value, destination.value, amount.value)"> Submit </button>
 </form>
 
-<p (click)="triggerExchangeRequest(USD, JPY)">
-  currency works!
-</p>
-<p>{{rate}}</p>
+
 <!-- <h2> {{this.exchanges| json}}</h2> -->
 <!-- <p>{{this.exchanges["Realtime Currency Exchange Rate"]["5. Exchange Rate"]}}</p> -->
 <!-- <div *ngIf="exchanges">
