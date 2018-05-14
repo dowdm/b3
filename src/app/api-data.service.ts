@@ -13,6 +13,6 @@ export class ApiDataService {
   }
 
   getCryptoExchangeRate(symbol: string, market: string) {
-    return this.http.get(`https://www.alphavantage.co/query?function=DIGITAL_CURRENCY_INTRADAY&symbol=${symbol}market=${market}&apikey=${apikey}`)
+    return this.http.get(`https://www.alphavantage.co/query?function=DIGITAL_CURRENCY_INTRADAY&symbol=${symbol}&market=${market}&apikey=${apikey}`)
   }
 }

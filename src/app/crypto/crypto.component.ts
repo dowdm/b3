@@ -3,9 +3,9 @@ import { ApiDataService } from '../api-data.service';
 import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-currency',
-  templateUrl: './currency.component.html',
-  styleUrls: ['./currency.component.css'],
+  selector: 'app-crypto',
+  templateUrl: './crypto.component.html',
+  styleUrls: ['./crypto.component.css'],
   providers: [ ApiDataService ]
 })
 export class CryptoComponent {
@@ -14,14 +14,21 @@ export class CryptoComponent {
   exchanges: any[]=null;
   rate: string = "";
   result: number = 0;
+  time: string = "";
     constructor(private apiDataService: ApiDataService) { }
 
-    triggerExchangeRequest(source: string, destination: string, amount: string) {
-      this.apiDataService.getCurrencyExchangeRate(source, destination).subscribe(response => {
+    triggerCryptoRequest(symbol: string, market: string, amount: string) {
+      this.apiDataService.getCryptoExchangeRate(symbol, market).subscribe(response => {
           this.exchanges = response.json();
-          this.rate = this.exchanges["Realtime Currency Exchange Rate"]["5. Exchange Rate"];
-          console.log(typeof(amount))
-          this.result = (parseFloat(amount) * parseFloat(this.rate));
+          this.time = this.exchanges[ "Meta Data"]["7. Last Refreshed"];
+          if (market==="USD"){
+            this.rate = this.exchanges["Time Series (Digital Currency Intraday)"][this.time]["1b. price (USD)"];
+          }else{
+            this.rate = this.exchanges["Time Series (Digital Currency Intraday)"][this.time]["1a. price (EUR)"];
+          }
+
+          console.log(this.rate, market);
+          // this.result = (parseFloat(amount) * parseFloat(this.rate));
       });
 
     }
