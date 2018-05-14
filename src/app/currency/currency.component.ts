@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import {ApiDataService} from '../api-data.service';
+import { ApiDataService } from '../api-data.service';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-currency',
