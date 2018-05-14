@@ -1,3 +1,14 @@
-<p>
+<p (click)="triggerExchangeRequest(USD, JPY)">
   currency works!
 </p>
+<p>{{rate}}</p>
+<!-- <h2> {{this.exchanges| json}}</h2> -->
+<!-- <p>{{this.exchanges["Realtime Currency Exchange Rate"]["5. Exchange Rate"]}}</p> -->
+<!-- <div *ngIf="exchanges">
+  <p>{{exchanges}}</p>
+</div>
+<div *ngIf="exchanges===null">
+    <h3>We couldn't find a currency or two.</h3>
+</div> -->
+
+<!-- <div *ngFor="let exchange of exchanges;" name="rate"> -->
