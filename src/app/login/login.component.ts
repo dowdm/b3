@@ -11,16 +11,16 @@ import { FirebaseListObservable } from 'angularfire2/database';
 })
 export class LoginComponent implements OnInit {
 
-  accountToDisplay;
-  userAccount: string = '0';
+
+
 
   constructor(private accountsService: AccountsService) { }
 
   accounts: FirebaseListObservable<any[]>;
-  assets: FirebaseListObservable<any[]>;
+  assetsToDisplay: string[];
 
   ngOnInit() {
-    this.accounts = this.accountsService.getAccounts();
-    this.assets = this.accountsService.getAssets();
+     this.accounts = this.accountsService.getAccounts();
+    //  this.assetsToDisplay = this.accounts[0].asset
   }
 }

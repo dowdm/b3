@@ -10,13 +10,21 @@ export class AccountsService {
 
   constructor(private database: AngularFireDatabase) {
     this.accounts = database.list('accounts');
-    this. assets = database.list('assets')
    }
 
    getAccounts(){
     return this.accounts;
   }
-  getAssets(){
-    return this.assets;
-  }
+  // getAssets(){
+  //   return this.assets;
+  // }
+  // getAccountById(id: string) {
+  //   return this.database.object('accounts/' + id);
+  //   console.log(id);
+  // }
+  // addAssets(accountToEdit, asset){
+  //   var accountEntryInFirebase = this.getAccountById(accountToEdit.$key);
+  //   accountEntryInFirebase.update(this.assets.push(asset));
+  //
+  // }
 }

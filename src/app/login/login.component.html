@@ -4,10 +4,12 @@
   <div class="panel-body">
     <h3>User Name:{{account.name}} </h3>
       <h3>User Balance:{{account.balance}} USD</h3>
-      <div *ngFor="let asset of assets">
-        <p>{{asset}}</p>
+      <div>
+        {{account.assets}}
+
 
       </div>
       <h3 >User Assets: </h3>
+      
   </div>
 </div>
