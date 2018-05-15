@@ -4,12 +4,12 @@
 
 
       <label for="">Enter an amount</label>
-      <input type="number" placeholder="$" name="amount" value="" #amount>
+      <input type="number" placeholder="0" name="amount" value="" #amount>
     </div>
     <br>
       <label for="">Convert from:</label>
       <select id="currencies" #source>
-        <option value="XUA">ABD Unit of Account</option>
+        <option value="XUA">From Currency:</option>
         <option value="AFN">Afghani</option>
         <option value="DZD">Algerian Dinar</option>
         <option value="ARS">Argentine Peso</option>
@@ -180,7 +180,7 @@
       </select>
       <label for="">Convert to:</label>
         <select id="currencies" #destination>
-          <option value="XUA">ABD Unit of Account</option>
+          <option value="XUA">To Currency</option>
           <option value="AFN">Afghani</option>
           <option value="DZD">Algerian Dinar</option>
           <option value="ARS">Argentine Peso</option>
@@ -351,7 +351,7 @@
         </select>
       <button id="button" class="btn " type="click" name="button" (click)="triggerExchangeRequest(source.value, destination.value, amount.value)"> Submit </button>
     <p>Exchange Rate: {{rate}}</p>
-    <p>{{result}} {{destination.value}}</p>
+    <p *ngIf="destination.value !== 'XUA'">{{result}} {{destination.value}}</p>
   </form>
 </div>
 
