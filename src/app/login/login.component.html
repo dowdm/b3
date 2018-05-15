@@ -1,15 +1,12 @@
 <!-- <button type="submit" name="button" (click)="getAccount()">Get account information</button> -->
-
-<div *ngFor="let account of accounts | async"  class="panel panel-default">
-  <div class="panel-body">
-    <h3>User Name:{{account.name}} </h3>
-      <h3>User Balance:{{account.balance}} USD</h3>
-      <div>
-        {{account.assets}}
-
-
-      </div>
-      <h3 >User Assets: </h3>
-      
+<div class="container">
+  <div *ngFor="let account of accounts | async"  class="card">
+      <h3>Welcome back, {{account.name}}! </h3>
+      <h3>Your Current Balance is {{account.balance}} USD</h3>
   </div>
 </div>
+<app-currency></app-currency>
+<button type="button" name="button">Buy Currency</button>
+<hr>
+<app-crypto></app-crypto>
+<button type="button" name="button">Buy Crypto</button>
