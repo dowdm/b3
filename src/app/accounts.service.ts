@@ -12,19 +12,18 @@ export class AccountsService {
     this.accounts = database.list('accounts');
    }
 
-   getAccounts(){
+  getAccounts(){
     return this.accounts;
   }
-  // getAssets(){
-  //   return this.assets;
-  // }
-  // getAccountById(id: string) {
-  //   return this.database.object('accounts/' + id);
-  //   console.log(id);
-  // }
-  // addAssets(accountToEdit, asset){
-  //   var accountEntryInFirebase = this.getAccountById(accountToEdit.$key);
-  //   accountEntryInFirebase.update(this.assets.push(asset));
-  //
-  // }
-}
+
+  getAccountById(accountId: string) {
+    return this.database.object('accounts/' + accountId);
+  }
+
+  balanceUpdate(accountToUpdate, amount){
+    console.log(accountToUpdate);
+     var accountEntryInFirebase = this.getAccountById(accountToUpdate.$key);
+     accountEntryInFirebase.update({balance: accountToUpdate.balance -= parseInt(amount)});
+
+   }
+ }
