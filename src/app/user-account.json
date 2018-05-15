@@ -1,0 +1,8 @@
+{ "accounts": [{
+  "name": "Bob",
+  "initialDeposit": "1000",
+  "balance": "1000",
+  "assets":["1000 USD", "2000 EUR"],
+  "id": "1"
+  } ]
+}
