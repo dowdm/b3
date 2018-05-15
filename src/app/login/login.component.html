@@ -3,6 +3,7 @@
   <div *ngFor="let account of accounts | async"  class="card">
       <h3>Welcome back, {{account.name}}! </h3>
       <h3>Your Current Balance is {{account.balance}} USD</h3>
+      <h3>Your Assets are {{account.assets}}</h3>
       <input type="number" name=""placeholder="$0" #amount>
       <label for="">Currency to purchase:</label>
         <select id="currencies" #destination>
@@ -175,7 +176,7 @@
           <option value="ZWL">Zimbabwe Dollar</option>
           <option value="PLN">Zloty</option>
         </select>
-      <button type="button" name="button" (click)="triggerBuyRequest(destination.value,amount.value)" (click)="triggerBalanceUpdate(account, amount.value)">Buy Currency</button>
+      <button type="button" name="button" (click)="triggerBuyRequest(destination.value,amount.value)" (click)="triggerBalanceUpdate(account, amount.value)" (click)="triggerAssetUpdate(account, result, destination.value)">Buy Currency</button>
       <p>{{result}}</p>
   </div>
 </div>

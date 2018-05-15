@@ -47,4 +47,8 @@ export class LoginComponent implements OnInit {
   triggerBalanceUpdate(accountToUpdate, amount){
       this.accountsService.balanceUpdate(accountToUpdate, amount);
   }
+
+  triggerAssetUpdate(accountToUpdate, result, destination){
+      this.accountsService.assetsUpdate(accountToUpdate, result, destination);
+  }
 }
