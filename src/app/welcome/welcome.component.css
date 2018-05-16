@@ -1,0 +1,25 @@
+#currency{
+  background-color: green;
+  border-radius: 20px;
+  margin: 10px 5px 10px 20px;
+}
+#crypto{
+  background-color: red;
+  border-radius: 20px;
+  margin: 10px 20px 10px 5px;
+}
+h1{
+  color: black
+}
+body {
+  background-color: black;
+}
+h2{
+  color: white;
+  font-family: helvetica;
+  font-size: 180px;
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
