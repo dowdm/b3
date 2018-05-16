@@ -2,8 +2,14 @@
 <div class="container">
   <div *ngFor="let account of accounts | async"  class="card">
       <h3>Welcome back, {{account.name}}! </h3>
-      <h3>Your Current Balance is {{account.balance}} USD</h3>
-      <h3>Your Assets are {{account.assets}}</h3>
+      <h3>Your Current Balance is: {{account.balance}} USD</h3>
+      <h3>Your Assets are: {{account.assets}}</h3>
+
+      <hr>
+      <hr>
+      <hr>
+
+      <label for="">Enter amount in USD to deduct:</label>
       <input type="number" name=""placeholder="$0" #amount>
       <label for="">Currency to purchase:</label>
         <select id="currencies" #destination>
@@ -178,6 +184,8 @@
         </select>
       <button type="button" name="button" (click)="triggerBuyRequest(account, destination.value, amount.value)">Buy Currency</button>
       <p>{{result}}</p>
+
+      <label for="">Enter amount in USD to deduct:</label>
       <input type="number" name=""placeholder="$0" #amount2>
       <label for="">Crypto to purchase:</label>
       <select class="form-control" id="crypto" #symbol>

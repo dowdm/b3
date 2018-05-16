@@ -1,0 +1,9 @@
+.card{
+background-color: black;
+color: white;
+padding: 10px 10px 10px 10px;
+}
+button{
+  margin-top: 10px;
+  background-color: yellow;
+}
