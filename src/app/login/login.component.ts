@@ -45,6 +45,7 @@ export class LoginComponent implements OnInit {
         this.rate = this.exchanges["Realtime Currency Exchange Rate"]["5. Exchange Rate"];
         this.result = (parseFloat(amount) * parseFloat(this.rate));
         this.accountsService.assetsUpdate(accountToUpdate, this.result, destination);
+        this.accountsService.balanceUpdate(accountToUpdate, amount);
     });
   }
 
@@ -53,14 +54,21 @@ export class LoginComponent implements OnInit {
         this.exchanges = response.json();
         this.time = this.exchanges[ "Meta Data"]["7. Last Refreshed"];
         this.rate2 = this.exchanges["Time Series (Digital Currency Intraday)"][this.time]["1b. price (USD)"];
-        this.result2 = (parseFloat(amount2) / parseFloat(this.rate2));
-        this.accountsService.assetsUpdate(accountToUpdate, this.result2, symbol);
+        this.result2 = (parseFloat(amount2) / parseFloat(this.rate));
+
+        console.log(this.result2)
+        if(this.result2 === 'NaN'){
+          alert("Transaction error! Please try again. You won't be charged twice.");
+        } else {
+          this.accountsService.assetsUpdate(accountToUpdate, this.result2, symbol);
+          this.accountsService.balanceUpdate(accountToUpdate, amount2);
+        }
     });
   }
 
-  triggerBalanceUpdate(accountToUpdate: string, amount: number){
-      this.accountsService.balanceUpdate(accountToUpdate, amount);
-  }
+  // triggerBalanceUpdate(accountToUpdate: string, amount: number){
+  //     this.accountsService.balanceUpdate(accountToUpdate, amount);
+  // }
 
   // triggerAssetUpdate(accountToUpdate, result, destination){
   //     this.accountsService.assetsUpdate(accountToUpdate, result, destination);
