@@ -44,8 +44,12 @@ export class LoginComponent implements OnInit {
         this.exchanges = response.json();
         this.rate = this.exchanges["Realtime Currency Exchange Rate"]["5. Exchange Rate"];
         this.result = (parseFloat(amount) * parseFloat(this.rate));
-        this.accountsService.assetsUpdate(accountToUpdate, this.result, destination);
-        this.accountsService.balanceUpdate(accountToUpdate, amount);
+        if(this.result.toString() === 'NaN'){
+          alert("Transaction error! Please try again. You won't be charged twice.");
+        } else {
+          this.accountsService.assetsUpdate(accountToUpdate, this.result, destination);
+          this.accountsService.balanceUpdate(accountToUpdate, amount);
+        }
     });
   }
 

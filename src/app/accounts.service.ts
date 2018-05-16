@@ -28,9 +28,8 @@ export class AccountsService {
 
    }
 
-   assetsUpdate(accountToUpdate, result, destination){
-     var accountEntryInFirebase = this.getAccountById(accountToUpdate.$key);
-       accountEntryInFirebase.update({assets: accountToUpdate.assets + result + destination+'; '});
-     }
-   }
+  assetsUpdate(accountToUpdate, result, destination){
+    var accountEntryInFirebase = this.getAccountById(accountToUpdate.$key);
+      accountEntryInFirebase.update({assets: accountToUpdate.assets + result + destination+'; '});
+  }
  }
