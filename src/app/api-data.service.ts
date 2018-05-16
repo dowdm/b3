@@ -19,4 +19,8 @@ export class ApiDataService {
     return this.http.get(`https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency=USD&to_currency=${destination}&apikey=${apikey}`)
   }
 
+  buyCryptoExchangeRate(symbol: string) {
+    return this.http.get(`https://www.alphavantage.co/query?function=DIGITAL_CURRENCY_INTRADAY&symbol=${symbol}&market=USD&apikey=${apikey}`)
+  }
+
 }

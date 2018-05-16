@@ -1,4 +1,4 @@
-<!-- <button type="submit" name="button" (click)="getAccount()">Get account information</button> -->
+
 <div class="container">
   <div *ngFor="let account of accounts | async"  class="card">
       <h3>Welcome back, {{account.name}}! </h3>
@@ -176,11 +176,44 @@
           <option value="ZWL">Zimbabwe Dollar</option>
           <option value="PLN">Zloty</option>
         </select>
-      <button type="button" name="button" (click)="triggerBuyRequest(account, destination.value, amount.value)" (click)="triggerBalanceUpdate(account, amount.value)">Buy Currency</button>
+      <button type="button" name="button" (click)="triggerBuyRequest(account, destination.value, amount.value)">Buy Currency</button>
       <p>{{result}}</p>
+      <input type="number" name=""placeholder="$0" #amount2>
+      <label for="">Crypto to purchase:</label>
+      <select class="form-control" id="crypto" #symbol>
+        <option value="BTC">Bitcoin</option>
+        <option value="BCH">Bitcoin Cash</option>
+        <option value="BCN">Bytecoin</option>
+        <option value="DASH">Dash</option>
+        <option value="DOGE">Dogecoin</option>
+        <option value="ETH">Ethereum</option>
+        <option value="ETC">Ethereum Classic</option>
+        <option value="EMC">Eemrcoin</option>
+        <option value="FTC">Feathercoin</option>
+        <option value="GRC">Gridcoin</option>
+        <option value="LTC">Litecoin</option>
+        <option value="XMR">Monero</option>
+        <option value="XEM">NEM</option>
+        <option value="NXT">Nxt</option>
+        <option value="PPC">Peercoin</option>
+        <option value="XRP">Ripple</option>
+        <option value="XLM">Stellar</option>
+        <option value="STC">SwiftCoin</option>
+        <option value="VTC">Verge</option>
+        <option value="VTC">Vertcoin</option>
+        <option value="WAVES">Waves Platform</option>
+        <option value="ZEC">Zcash</option>
+      </select>
+      <button type="button" name="button" (click)="triggerBuyCryptoRequest(account, symbol.value, amount2.value)">Buy Crypto</button>
+      <p>{{rate2}}</p>
+      <p>{{result2}}</p>
   </div>
 </div>
-<app-currency></app-currency>
-<hr>
-<app-crypto></app-crypto>
-<button type="button" name="button">Buy Crypto</button>
+<div class="row">
+  <div class="col">
+    <app-currency></app-currency>
+  </div>
+  <div class="col">
+    <app-crypto></app-crypto>
+  </div>
+</div>
