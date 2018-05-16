@@ -4,7 +4,7 @@
       <h3>Welcome back, {{account.name}}! </h3>
       <h3>Your Current Balance is: {{account.balance}} USD</h3>
       <h3>Your Assets are: {{account.assets}}</h3>
-
+      
       <hr>
       <hr>
       <hr>
@@ -185,7 +185,7 @@
       <button type="button" name="button" (click)="triggerBuyRequest(account, destination.value, amount.value)">Buy Currency</button>
 
 
-        <p>You just purchased {{result}} {{destination.value}}</p>
+        <p *ngIf="destination.value !== 'XUA'">{{result}}</p>
 
 
       <h2>Buy Crypto-Currency</h2>
@@ -217,8 +217,7 @@
         <option value="ZEC">Zcash</option>
       </select>
       <button type="button" name="button" (click)="triggerBuyCryptoRequest(account, symbol.value, amount2.value)">Buy Crypto</button>
-      <p>{{rate2}}</p>
-      <p>{{result2}}</p>
+      <p *ngIf="result2 !== 0">{{result2}}</p>
   </div>
 </div>
 <div class="row">

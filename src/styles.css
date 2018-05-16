@@ -1,2 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 @import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+
+html, body{
+  height: 100%;
+}
+
+body{
+  background-color: black;
+}
+.well{
+  border-color: black;
+}
