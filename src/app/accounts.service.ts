@@ -20,17 +20,19 @@ export class AccountsService {
     return this.database.object('accounts/' + accountId);
   }
 
-  assetsUpdate(accountToUpdate, result, destination){
-    console.log(destination);
-    var accountEntryInFirebase = this.getAccountById(accountToUpdate.$key);
-    accountEntryInFirebase.update({assets: accountToUpdate.assets + result + destination+'; '});
 
-
-  }
 
   balanceUpdate(accountToUpdate, amount){
      var accountEntryInFirebase = this.getAccountById(accountToUpdate.$key);
      accountEntryInFirebase.update({balance: accountToUpdate.balance -= parseInt(amount)});
+
+   }
+
+   assetsUpdate(accountToUpdate, result, destination){
+     console.log(destination);
+     var accountEntryInFirebase = this.getAccountById(accountToUpdate.$key);
+     accountEntryInFirebase.update({assets: accountToUpdate.assets + result + destination+'; '});
+
 
    }
  }

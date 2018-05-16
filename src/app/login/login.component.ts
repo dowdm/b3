@@ -36,19 +36,23 @@ export class LoginComponent implements OnInit {
     })
   }
 
-  triggerBuyRequest(destination: string, amount: string) {
+  triggerBuyRequest(accountToUpdate: string, destination: string, amount: string) {
     this.apiDataService.buyCurrencyExchangeRate(destination).subscribe(response => {
         this.exchanges = response.json();
         this.rate = this.exchanges["Realtime Currency Exchange Rate"]["5. Exchange Rate"];
         this.result = (parseFloat(amount) * parseFloat(this.rate));
+        this.accountsService.assetsUpdate(accountToUpdate, this.result, destination);
     });
+    // .then( result: number, destination: string)(function(response){
+    //
+    // });
   }
 
-  triggerBalanceUpdate(accountToUpdate, amount){
+  triggerBalanceUpdate(accountToUpdate: string, amount: number){
       this.accountsService.balanceUpdate(accountToUpdate, amount);
   }
 
-  triggerAssetUpdate(accountToUpdate, result, destination){
-      this.accountsService.assetsUpdate(accountToUpdate, result, destination);
-  }
+  // triggerAssetUpdate(accountToUpdate, result, destination){
+  //     this.accountsService.assetsUpdate(accountToUpdate, result, destination);
+  // }
 }

@@ -20,7 +20,6 @@ export class CurrencyComponent {
       this.apiDataService.getCurrencyExchangeRate(source, destination).subscribe(response => {
           this.exchanges = response.json();
           this.rate = this.exchanges["Realtime Currency Exchange Rate"]["5. Exchange Rate"];
-          console.log(typeof(amount))
           this.result = (parseFloat(amount) * parseFloat(this.rate));
       });
 

@@ -176,7 +176,7 @@
           <option value="ZWL">Zimbabwe Dollar</option>
           <option value="PLN">Zloty</option>
         </select>
-      <button type="button" name="button" (click)="triggerBuyRequest(destination.value,amount.value)" (click)="triggerBalanceUpdate(account, amount.value)" (click)="triggerAssetUpdate(account, result, destination.value)">Buy Currency</button>
+      <button type="button" name="button" (click)="triggerBuyRequest(account, destination.value, amount.value)" (click)="triggerBalanceUpdate(account, amount.value)">Buy Currency</button>
       <p>{{result}}</p>
   </div>
 </div>
